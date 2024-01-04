@@ -114,155 +114,163 @@ class _HomePageState extends State<HomePage> {
       scaffoldKey.currentState?.openDrawer();
     }
 
-    double temperature = kelvinToCelsius(weatherData?.temperature ?? 0);
+    double temperature = kelvinToCelsius(
+      weatherData?.temperature ?? 0,
+    );
     return Scaffold(
       key: scaffoldKey,
       drawer: Drawer(
-          child: Container(
-        color: mainColor,
-        child: Column(
-          children: [
-            Expanded(
-              child: ListView(
+        child: Container(
+          color: mainColor,
+          child: Column(
+            children: [
+              Expanded(
+                child: ListView(
+                  children: [
+                    const DrawerHeader(
+                      child: Icon(
+                        Icons.favorite,
+                        size: 100,
+                      ),
+                    ),
+                    ListTile(
+                      leading: const Icon(
+                        Icons.edit_location_alt_rounded,
+                        color: Colors.black,
+                      ),
+                      title: Text(
+                        "Change location",
+                        style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      onTap: changeLocation,
+                    ),
+                    ListTile(
+                      leading: const Icon(
+                        Icons.cancel_sharp,
+                        color: Colors.black,
+                      ),
+                      title: Text(
+                        "Go back",
+                        style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                    const Divider(),
+                    ListTile(
+                      leading: const Icon(
+                        Icons.color_lens,
+                        color: Colors.black,
+                      ),
+                      title: Text(
+                        "Themes",
+                        style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 22,
+                        ),
+                      ),
+                      onTap: () {},
+                    ),
+                    ListTile(
+                      onTap: () {
+                        setState(() {
+                          mainColor = const Color(0xFFF2C641);
+                        });
+                      },
+                      leading: const Icon(
+                        Icons.circle,
+                        color: Color.fromARGB(255, 235, 212, 6),
+                      ),
+                      title: Text(
+                        "Main",
+                        style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    ListTile(
+                      onTap: () {
+                        setState(() {
+                          mainColor = Colors.white;
+                        });
+                      },
+                      leading: Icon(
+                        Icons.circle,
+                        color: Colors.grey[100],
+                      ),
+                      title: Text(
+                        "White",
+                        style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    ListTile(
+                      onTap: () {
+                        setState(() {
+                          mainColor = secondMainColor;
+                        });
+                      },
+                      leading: const Icon(
+                        Icons.circle,
+                        color: Colors.blue,
+                      ),
+                      title: Text(
+                        "Blue",
+                        style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    ListTile(
+                      onTap: () {
+                        setState(() {
+                          mainColor = thirdMainColor;
+                        });
+                      },
+                      leading: Icon(
+                        Icons.circle,
+                        color: Colors.purple[200],
+                      ),
+                      title: Text(
+                        "Pink",
+                        style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Row(
                 children: [
-                  const DrawerHeader(
-                    child: Icon(
-                      Icons.favorite,
-                      size: 100,
-                    ),
-                  ),
-                  ListTile(
-                    leading: const Icon(
-                      Icons.edit_location_alt_rounded,
-                      color: Colors.black,
-                    ),
-                    title: Text(
-                      "Change location",
-                      style: GoogleFonts.poppins(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    onTap: changeLocation,
-                  ),
-                  ListTile(
-                    leading: const Icon(
-                      Icons.cancel_sharp,
-                      color: Colors.black,
-                    ),
-                    title: Text(
-                      "Go back",
-                      style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
-                    ),
-                    onTap: () {
-                      Navigator.of(context).pop();
-                    },
-                  ),
-                  const Divider(),
-                  ListTile(
-                    leading: const Icon(
-                      Icons.color_lens,
-                      color: Colors.black,
-                    ),
-                    title: Text(
-                      "Themes",
-                      style: GoogleFonts.poppins(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 22,
-                      ),
-                    ),
-                    onTap: () {},
-                  ),
-                  ListTile(
-                    onTap: () {
-                      setState(() {
-                        mainColor = const Color(0xFFF2C641);
-                      });
-                    },
-                    leading: const Icon(
-                      Icons.circle,
-                      color: Color.fromARGB(255, 235, 212, 6),
-                    ),
-                    title: Text(
-                      "Main",
-                      style: GoogleFonts.poppins(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  ListTile(
-                    onTap: () {
-                      setState(() {
-                        mainColor = Colors.white;
-                      });
-                    },
-                    leading: Icon(
-                      Icons.circle,
-                      color: Colors.grey[100],
-                    ),
-                    title: Text(
-                      "White",
-                      style: GoogleFonts.poppins(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  ListTile(
-                    onTap: () {
-                      setState(() {
-                        mainColor = secondMainColor;
-                      });
-                    },
-                    leading: const Icon(
-                      Icons.circle,
-                      color: Colors.blue,
-                    ),
-                    title: Text(
-                      "Blue",
-                      style: GoogleFonts.poppins(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  ListTile(
-                    onTap: () {
-                      setState(() {
-                        mainColor = thirdMainColor;
-                      });
-                    },
-                    leading: Icon(
-                      Icons.circle,
-                      color: Colors.purple[200],
-                    ),
-                    title: Text(
-                      "Pink",
-                      style: GoogleFonts.poppins(
-                        fontWeight: FontWeight.bold,
-                      ),
+                  const SizedBox(width: 20),
+                  Text(
+                    "Made with ❤️ by Naol",
+                    style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ],
               ),
-            ),
-            Row(
-              children: [
-                const SizedBox(width: 20),
-                Text(
-                  "Made with ❤️ by Naol",
-                  style: GoogleFonts.poppins(
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 20)
-          ],
+              const SizedBox(height: 20)
+            ],
+          ),
         ),
-      )),
+      ),
       backgroundColor: mainColor,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
-            margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+            margin: const EdgeInsets.symmetric(
+              horizontal: 15,
+              vertical: 5,
+            ),
             child: Column(
               children: [
                 Row(
@@ -286,11 +294,12 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     IconButton(
-                        onPressed: changeLocation,
-                        icon: const Icon(
-                          Icons.location_on,
-                          size: 40,
-                        ))
+                      onPressed: changeLocation,
+                      icon: const Icon(
+                        Icons.location_on,
+                        size: 40,
+                      ),
+                    ),
                   ],
                 ),
                 const SizedBox(height: 20),
@@ -355,7 +364,9 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Container(
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 20),
+                            horizontal: 20,
+                            vertical: 20,
+                          ),
                           decoration: BoxDecoration(
                             color: Colors.black,
                             borderRadius: BorderRadius.circular(14),
@@ -424,8 +435,9 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                   Text(
                                     "Visibility",
-                                    style:
-                                        GoogleFonts.poppins(color: mainColor),
+                                    style: GoogleFonts.poppins(
+                                      color: mainColor,
+                                    ),
                                   ),
                                 ],
                               )
