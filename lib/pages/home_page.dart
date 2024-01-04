@@ -64,8 +64,9 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       Container(
                         decoration: BoxDecoration(
-                            color: Colors.black,
-                            borderRadius: BorderRadius.circular(10)),
+                          color: Colors.black,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
                         child: IconButton(
                           onPressed: () async {
                             try {
@@ -81,7 +82,8 @@ class _HomePageState extends State<HomePage> {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
                                   content: Text(
-                                      "Country/City not found, try correcting it"),
+                                    "Country/City not found, try correcting it",
+                                  ),
                                 ),
                               );
                             }
@@ -245,7 +247,7 @@ class _HomePageState extends State<HomePage> {
               children: [
                 const SizedBox(width: 20),
                 Text(
-                  "Made with ❤️ by Fadile",
+                  "Made with ❤️ by Naol",
                   style: GoogleFonts.poppins(
                     fontWeight: FontWeight.bold,
                   ),
@@ -276,11 +278,13 @@ class _HomePageState extends State<HomePage> {
                         color: Colors.black,
                       ),
                     ),
-                    Text(weatherData?.name ?? "loading",
-                        style: GoogleFonts.poppins(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                        )),
+                    Text(
+                      weatherData?.name ?? "loading",
+                      style: GoogleFonts.poppins(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                     IconButton(
                         onPressed: changeLocation,
                         icon: const Icon(
@@ -321,9 +325,9 @@ class _HomePageState extends State<HomePage> {
                   "${kelvinToCelsius(weatherData?.temperature ?? 0).toStringAsFixed(0)}°",
                   style: GoogleFonts.poppins(
                     fontWeight: FontWeight.w600,
-                    fontSize: kelvinToCelsius(weatherData?.temperature ?? 0)
-                                .toStringAsFixed(0)
-                                .length >=
+                    fontSize: kelvinToCelsius(
+                              weatherData?.temperature ?? 0,
+                            ).toStringAsFixed(0).length >=
                             3
                         ? 110
                         : 180,
@@ -353,8 +357,9 @@ class _HomePageState extends State<HomePage> {
                           padding: const EdgeInsets.symmetric(
                               horizontal: 20, vertical: 20),
                           decoration: BoxDecoration(
-                              color: Colors.black,
-                              borderRadius: BorderRadius.circular(14)),
+                            color: Colors.black,
+                            borderRadius: BorderRadius.circular(14),
+                          ),
                           child: Row(
                             children: [
                               Column(
@@ -396,8 +401,9 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                   Text(
                                     "Humidity",
-                                    style:
-                                        GoogleFonts.poppins(color: mainColor),
+                                    style: GoogleFonts.poppins(
+                                      color: mainColor,
+                                    ),
                                   ),
                                 ],
                               ),
