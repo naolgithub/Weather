@@ -8,8 +8,8 @@ An API key from [openWeatherMap](https://openweathermap.org/api) to access weath
 
 # Getting Started
 ```
-git clone https://github.com/Fadilix/flutter-weather-app.git
-cd flutter-weather-app
+git clone https://github.com/naolgithub/Weather.git
+cd weather
 flutter pub get
 ```
 # Screenshots
