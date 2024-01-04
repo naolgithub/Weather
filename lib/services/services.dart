@@ -9,8 +9,11 @@ Future fetchWeatherInfo(city) async {
   try {
     //api key=3d80701260e7ccb446e8821f1e68b5a8
     String apiKey = "3d80701260e7ccb446e8821f1e68b5a8";
-    Response response = await get(Uri.parse(
-        "https://api.openweathermap.org/data/2.5/weather?q=$city&appid=$apiKey"));
+    Response response = await get(
+      Uri.parse(
+        "https://api.openweathermap.org/data/2.5/weather?q=$city&appid=$apiKey",
+      ),
+    );
     if (response.statusCode == 200) {
       final Map<String, dynamic> data = jsonDecode(response.body);
       double temperature = data["main"]["temp"];
